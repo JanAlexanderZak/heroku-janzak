@@ -1,6 +1,5 @@
 import re
 from typing import Dict, Pattern
-from django.http import HttpResponse
 from django.shortcuts import render
 
 

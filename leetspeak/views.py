@@ -21,11 +21,25 @@ class LeetspeekConverter:
 
 def api(request, string):
     converter = LeetspeekConverter()
-    converter.convert_to_leet(string)
+    converted = converter.convert_to_leet(string)
     return render(request, "leetspeak/api.html", {
-        'leet_string': converter.convert_to_leet(string),
+        'leet_string': converted,
     })
 
 
 def index(request):
     return render(request, 'leetspeak/index.html')
+
+
+def examples(request):
+    _examples = ['leet', 'code']
+    converter = LeetspeekConverter()
+    leet_examples = [converter.convert_to_leet(example) for example in _examples]
+    field = {
+        'headers': [u'id', u'string', u'leet_string'],
+        'rows': [[u'1', u'leet', u'l33t'],
+                 [u'2', u'me', u'm3'], ], }
+
+    return render(request, 'leetspeak/examples.html', {
+        'field': field,
+    })

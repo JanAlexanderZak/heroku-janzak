@@ -1,3 +1,6 @@
+only subfolder janzak is pushed to git
+
+https://stackabuse.com/deploying-django-apps-to-heroku-from-github/
 venv
 install django gunicorn
 django-admin startprject 
@@ -10,3 +13,12 @@ add procfile (web: gunicorn janzak.wsgi:application --log-file -)
 pip freez > requirements txt
 
 on heroku:
+new pipeline: sellect git repo
+new app: create new app
+deploy master branch
+
+
+debugging:
+heroku logs --tail --app janzak
+heroku restart --app janzak
+heroku ps:scale web=1 --app janzak

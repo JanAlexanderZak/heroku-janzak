@@ -1,0 +1,1 @@
+web: gunicorn janzak.wsgi:application --log-file -
